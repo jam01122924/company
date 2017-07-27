@@ -1,0 +1,63 @@
+<div class="home-container">
+	<app-advertise-item [item]="advertiseItemArray[0]" [w]="w"></app-advertise-item>
+	<app-advertise-item [item]="advertiseItemArray[1]" [w]="w"></app-advertise-item>
+	<div class="home-widget-content">
+		<div [ngClass]="{'home-main-content-lg': w>=1024, 'home-main-content-md': w<1024&&w>=640, 'home-main-content-sm': w<640}">
+			<div class="spec-content" [ngClass]="{'spec-content-lg': w>=1024}">
+				<img src="/assets/imgs/pages/home/design.jpg" width="90%">
+				<p class="title">
+					DESIGN
+				</p>
+				<p>It's more than a website</p><br/>
+				<p>
+					We understand your website also represents your company's <strong>Position</strong> and <strong>Taste</strong>.
+				</p>
+				<p>
+					So tell us more about you,<br />
+					and we will create the<br />
+					<strong>Designed Theme</strong>
+				</p>
+				<p>
+					Just for you!
+				</p><br />
+				<div class="spec-content-mask"></div>
+			</div>
+
+			<div class="spec-content" [ngClass]="{'spec-content-lg': w>=1024}">
+				<img src="/assets/imgs/pages/home/host.jpg" width="90%">
+				<p class="title">
+					HOST
+				</p>
+				<p>Stableness counts</p><br/>
+				<p>
+					A stable website means a lot.<br />
+					It helps to <strong>Build the Trust</strong> between you and your customers
+				</p>
+				<p>
+					We provide the smooth experience of hosting a website with our developers standing on your side
+				</p>
+				<div class="spec-content-mask"></div>
+			</div>
+
+			<div class="spec-content" [ngClass]="{'spec-content-lg': w>=1024}">
+				<img src="/assets/imgs/pages/home/management.jpg" width="90%">
+				<p class="title">
+					MAINTAIN
+				</p>
+				<p>Easy & Fun</p><br/>
+				<p>
+					It doesn't have to be complicated or painful to <strong>Maintain your Website</strong>.
+				</p>
+				<p>
+					With the services we provided, you can easily manage the content of your website, as long as you can <strong>type</strong>.
+				</p>
+				<div class="spec-content-mask"></div>
+			</div>
+		</div>
+	</div>
+
+	<app-advertise-item [item]="advertiseItemArray[2]" [w]="w"></app-advertise-item>
+
+	<app-flash-item [content]="flashContent"></app-flash-item>
+
+</div>

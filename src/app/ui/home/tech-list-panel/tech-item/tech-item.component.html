@@ -1,0 +1,12 @@
+<div class="tech-item-container">
+  <img [src]="'/assets/imgs/' + techItem.name + '.png'" 
+    class="tech-item-img" 
+    [@verticalMove]="verticalPosition"
+    [ngStyle]="{'left': techItem.positionX + '%', 
+      'top': techItem.positionY + '%', 
+      'display': 'absolute',
+      'width': techItem.size + '%',
+      'filter': 'blur(' + (lv===1?'0':lv===2?'1':'3') + 'px)'
+    }"
+  >
+</div>

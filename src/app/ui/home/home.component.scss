@@ -1,0 +1,247 @@
+@import '../../../font';
+@import '../../../color';
+
+.home-container {
+	width: 100%;
+	text-align: center;
+	display: block;
+	.app-selfie {
+		text-align: center;
+	}
+	.home-section-container {
+    position:relative;
+    z-index:3;
+    height:500px;
+    width:100%;
+    background-attachment:fixed;    /* this keeps the background in place */
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+	}
+	.home-section-content {
+    position:relative;
+    z-index:4;
+    background-color:#fff;
+    border:2px solid #666;
+    height:10%;    /* this height difference allows the bg to show through */
+	}
+    .home-white-space-container {
+        margin-top: -2px;
+        background: white;
+        .home-white-space {
+            height: auto;
+            text-align: center;
+            padding: 10px 5px;
+        }
+        .home-white-tool-box {
+            margin: auto;
+            padding: 20px 0;
+            background: none;
+            border-radius: 5px;
+            height: auto;
+            max-width: 1024px;
+        }
+    }
+    .home-main-content {
+        color: $color-gray65;
+        text-align: center;
+        img {
+            border: 4px solid $color-gray85;
+        }
+        .title {
+            img {
+                border: none;
+            }
+            font-family: pencil02;
+            color: $color-gray95;
+        }
+        strong {
+            color: orange;
+        }
+        .home-main-content-lg {
+            margin-top: 23px;
+            .title {
+                font-size: 40px;
+                padding-bottom: 9px;
+                border-bottom: 4px solid $color-gray35;
+                margin: 15px;
+            }
+            p {
+                font-size: 16px;
+            }
+            .spec-content {
+                height: 480px;
+                display: inline-block;
+                width: 100%;
+                margin: 4vw 1vw 4vw 1vw;
+                vertical-align: top;
+            }
+            .spec-content-lg {
+                max-width: 360px;
+            }
+        }
+        .home-main-content-md {
+            margin-top: 15px;
+            .title {
+                font-size: 5vw;
+                padding-bottom: 5px;
+                border-bottom: 2px solid $color-gray35;
+                margin: 10px;
+            }
+            p {
+                font-size: 2vw;
+            }
+            .spec-content {
+                display: inline-block;
+                width: 80%;
+                margin: 4vw 0 4vw 0;
+            }
+        }
+        .home-main-content-sm {
+            margin-top: 10px;
+            .title {
+                font-size: 15px;
+                padding-bottom: 3px;
+                border-bottom: 1px solid $color-gray35;
+                margin: 5px;
+            }
+            p {
+                font-size: 10px;
+            }
+            .spec-content {
+                display: inline-block;
+                width: 100%;
+                margin: 4vw 0 4vw 0;
+            }
+
+        }
+        .spec-content {
+            position: relative;
+            padding: 30px 2vw 30px 2vw;
+            background-color: rgba(0,0,0,0.7);
+        }
+    }
+    .home-widget-content {
+        color: $color-gray85;
+        text-align: center;
+        img {
+            border: 4px solid $color-gray85;
+        }
+        .title {
+            img {
+                border: none;
+            }
+            font-family: pencil02;
+            color: $color-gray95;
+        }
+        strong {
+            color: orange;
+        }
+        .home-main-content-lg {
+            margin-top: 23px;
+            .title {
+                font-size: 40px;
+                padding-bottom: 9px;
+                border-bottom: 4px solid $color-gray35;
+                margin: 15px 15px 5px 15px;
+            }
+            p {
+                font-size: 16px;
+            }
+            .spec-content {
+                height: 545px;
+                display: inline-block;
+                width: 30%;
+                margin: 4vw 1vw 4vw 1vw;
+                vertical-align: top;
+            }
+        }
+        .home-main-content-md {
+            margin-top: 15px;
+            .title {
+                font-size: 5vw;
+                padding-bottom: 5px;
+                border-bottom: 2px solid $color-gray35;
+                margin: 10px;
+            }
+            p {
+                font-size: 2vw;
+            }
+            .spec-content {
+                display: inline-block;
+                width: 100%;
+                margin: 4vw 0 4vw 0;
+            }
+        }
+        .home-main-content-sm {
+            margin-top: 10px;
+            .title {
+                font-size: 15px;
+                padding-bottom: 3px;
+                border-bottom: 1px solid $color-gray35;
+                margin: 5px;
+            }
+            p {
+                font-size: 10px;
+            }
+            .spec-content {
+                display: inline-block;
+                width: 100%;
+                margin: 4vw 0 4vw 0;
+            }
+
+        }
+        .spec-content {
+            position: relative;
+            padding: 30px 2vw 30px 2vw;
+            background-color: rgba(0,0,0,0.7);
+        }
+    }
+    .spec-content-mask {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.2);
+        -webkit-animation: animation-fadeIn 1s; /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: animation-fadeIn 1s; /* Firefox < 16 */
+        -ms-animation: animation-fadeIn 1s; /* Internet Explorer */
+        -o-animation: animation-fadeIn 1s; /* Opera < 12.1 */
+        animation: animation-fadeIn 1s;
+        animation-fill-mode: forwards;
+    }
+    .spec-content-mask:hover {
+        -webkit-animation: animation-fadeOut 1s; /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: animation-fadeOut 1s; /* Firefox < 16 */
+        -ms-animation: animation-fadeOut 1s; /* Internet Explorer */
+        -o-animation: animation-fadeOut 1s; /* Opera < 12.1 */
+        animation: animation-fadeOut 1s;
+        animation-fill-mode: forwards;
+    }
+}
+
+
+.white-space-link {
+    font-size: 6vw;
+    cursor: pointer;
+}
+.white-space-link:hover {
+    color: orange;
+}
+
+.section {
+    position:relative;
+    z-index:1;
+    height:500px;
+    width:100%;
+    background-attachment:fixed;    /* this keeps the background in place */
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+}
+.content {
+    position:relative;
+    z-index:2;
+    background-color:#fff;
+    border:2px solid #666;
+    height:50%;    /* this height difference allows the bg to show through */
+}

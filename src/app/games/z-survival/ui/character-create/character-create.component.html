@@ -1,0 +1,268 @@
+<div class="character-create-container noselect">
+  <div class="character-create-content">
+    <div class="character-create-sections">
+
+      <div *ngIf="_step===_steps['sex']">
+        <div class="panel z-panel character-create-panel">
+          <div class="panel-heading z-panel-heading">Select Sex</div>
+          <div class="panel-body">
+            <div class="character-create-item-container align-center">
+              <label>Name: </label>
+              <!--<input type="text" class="form-control z-input" placeholder="Character Name" [(ngModel)]="_character.name">-->
+              <input-debounce delay="1500" placeholder="Character Name" (value)="checkCharacterName($event)"></input-debounce>
+              <label class="text-danger" *ngIf="errors.repeatName">This Name already Exist! Please try a different name.</label>
+            </div>
+            <div class="character-create-item-container align-center">
+              <label>Gender: </label>
+              <div class="row">
+                <div class="col-xs-6 align-center gender-icon" (click)="_character.sex='M'" [ngClass]="{selectedBG: _character.sex==='M'}">
+                  <i class="fa fa-mars" aria-hidden="true"></i>
+                </div>
+                <div class="col-xs-6 align-center gender-icon" (click)="_character.sex='F'" [ngClass]="{selectedBG: _character.sex==='F'}">
+                  <i class="fa fa-venus" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div *ngIf="_step===_steps['job']">
+        <div class="panel z-panel character-create-panel">
+          <div class="panel-heading z-panel-heading">Select Job</div>
+          <div class="panel-body">
+            <div class="job-name-bar">
+              <button class="btn btn-default z-survival-btn" (click)="jobPrevious()">
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
+              </button>
+              <span class="job-name-container">{{_character.oldJob.name}}</span>
+              <button class="btn btn-default z-survival-btn" (click)="jobNext()">
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </button>
+            </div>
+
+            <div class="job-description-container">
+              {{_character.oldJob.description}}
+            </div>
+
+            <div class="job-attr-container">
+              <p>Talent:</p>
+              <div><strong>{{_character.oldJob.talent.name}}</strong></div>
+              <div>{{_character.oldJob.talent.description}}</div>
+            </div>
+
+            <div class="job-attr-container">
+              <p>Attributes:</p>
+              <div>{{_attrPoint}} Points Left</div>
+              <table class="attr-table">
+                <tr>
+                  <td>Strength</td>
+                  <td class="text-right">
+                    <button class="btn btn-default z-survival-btn"
+                            [disabled]="_character.attr.strength < _character.oldJob.attributes.strength || _character.attr.strength === 1"
+                            (click)="changeAttr('strength', -1)">
+                      -
+                    </button>
+                    <div class="job-attr-number">
+                      {{_character.attr.strength}}
+                    </div>
+                    <button class="btn btn-default z-survival-btn"
+                            [disabled]="_character.attr.strength >= 10 || _attrPoint===0"
+                            (click)="changeAttr('strength', 1)">
+                      +
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Perception</td>
+                  <td class="text-right">
+                    <button class="btn btn-default z-survival-btn"
+                            [disabled]="_character.attr.perception < _character.oldJob.attributes.perception || _character.attr.perception === 1"
+                            (click)="changeAttr('perception', -1)">
+                      -
+                    </button>
+                    <div class="job-attr-number">
+                      {{_character.attr.perception}}
+                    </div>
+                    <button class="btn btn-default z-survival-btn"
+                            [disabled]="_character.attr.perception >= 10 || _attrPoint===0"
+                            (click)="changeAttr('perception', 1)">
+                      +
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Endurance</td>
+                  <td class="text-right">
+                    <button class="btn btn-default z-survival-btn"
+                            [disabled]="_character.attr.endurance < _character.oldJob.attributes.endurance || _character.attr.endurance === 1"
+                            (click)="changeAttr('endurance', -1)">
+                      -
+                    </button>
+                    <div class="job-attr-number">
+                      {{_character.attr.endurance}}
+                    </div>
+                    <button class="btn btn-default z-survival-btn"
+                            [disabled]="_character.attr.endurance >= 10 || _attrPoint===0"
+                            (click)="changeAttr('endurance', 1)">
+                      +
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Charisma</td>
+                  <td class="text-right">
+                    <button class="btn btn-default z-survival-btn"
+                            [disabled]="_character.attr.charisma < _character.oldJob.attributes.charisma || _character.attr.charisma === 1"
+                            (click)="changeAttr('charisma', -1)">
+                      -
+                    </button>
+                    <div class="job-attr-number">
+                      {{_character.attr.charisma}}
+                    </div>
+                    <button class="btn btn-default z-survival-btn"
+                            [disabled]="_character.attr.charisma >= 10 || _attrPoint===0"
+                            (click)="changeAttr('charisma', 1)">
+                      +
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Intelligence</td>
+                  <td class="text-right">
+                    <button class="btn btn-default z-survival-btn"
+                            [disabled]="_character.attr.intelligence < _character.oldJob.attributes.intelligence || _character.attr.intelligence === 1"
+                            (click)="changeAttr('intelligence', -1)">
+                      -
+                    </button>
+                    <div class="job-attr-number">
+                      {{_character.attr.intelligence}}
+                    </div>
+                    <button class="btn btn-default z-survival-btn"
+                            [disabled]="_character.attr.intelligence >= 10 || _attrPoint===0"
+                            (click)="changeAttr('intelligence', 1)">
+                      +
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Agility</td>
+                  <td class="text-right">
+                    <button class="btn btn-default z-survival-btn"
+                            [disabled]="_character.attr.agility < _character.oldJob.attributes.agility || _character.attr.agility === 1"
+                            (click)="changeAttr('agility', -1)">
+                      -
+                    </button>
+                    <div class="job-attr-number">
+                      {{_character.attr.agility}}
+                    </div>
+                    <button class="btn btn-default z-survival-btn"
+                            [disabled]="_character.attr.agility >= 10 || _attrPoint===0"
+                            (click)="changeAttr('agility', 1)">
+                      +
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Luck</td>
+                  <td class="text-right">
+                    <button class="btn btn-default z-survival-btn"
+                            [disabled]="_character.attr.luck < _character.oldJob.attributes.luck || _character.attr.luck === 1"
+                            (click)="changeAttr('luck', -1)">
+                      -
+                    </button>
+                    <div class="job-attr-number">
+                      {{_character.attr.luck}}
+                    </div>
+                    <button class="btn btn-default z-survival-btn"
+                            [disabled]="_character.attr.luck >= 10 || _attrPoint===0"
+                            (click)="changeAttr('luck', 1)">
+                      +
+                    </button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="_step===_steps['skills']">
+        <div class="panel z-panel character-create-panel">
+          <div class="panel-heading z-panel-heading">Select Skills</div>
+          <div class="panel-body">
+            <div class="skills-container">
+              <p>Skills:</p>
+              <div>{{_skillPoint}} Skill Points Left</div>
+              <div class="skills-content" *ngFor="let skill of _skills; let i = index" [ngClass]="{'selected-skill': _selectedSkills[i]}" (click)="selectSkill(i)">
+                <div class="skill-name">{{skill.name}}</div>
+                <div class="skill-description">{{skill.description}}</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div *ngIf="_step===_steps['confirm']">
+        <div class="panel z-panel character-create-panel">
+          <div class="panel-heading z-panel-heading">Confirm Character</div>
+          <div class="panel-body">
+            <div class="confirm-list">
+              <div class="confirm-title">Name:</div>
+              <div class="confirm-content">{{_character.name}}</div>
+              <div class="confirm-error" *ngIf="confirmInfo.nameError">{{confirmInfo.nameError}}</div>
+              <div class="confirm-title">Sex:</div>
+              <div class="confirm-content"><i class="fa" [ngClass]="_character.name==='male'?'fa-mars':'fa-venus'" aria-hidden="true"></i> {{_character.name==='male'?'Male':'Female'}}</div>
+              <div class="confirm-title">Job:</div>
+              <div class="confirm-content">{{_character.oldJob.name}}</div>
+              <div class="confirm-title">Attributes:</div>
+              <div class="confirm-content text-center">
+                <div *ngFor="let attr of _character.attr | attrArray">
+                  <progressbar [max]="_attrMax" [value]="attr.value" type="{{attr.value>6?'success':attr.value>3?'warning':'danger'}}">
+                    <span style="color:black; white-space:nowrap; padding-left: 10px;">
+                      {{attr.key}}: {{attr.value}} / {{_attrMax}}
+                    </span>
+                  </progressbar>
+                </div>
+              </div>
+              <div class="confirm-error" *ngIf="confirmInfo.attrError">{{confirmInfo.attrError}}</div>
+              <div class="confirm-title">Skills:</div>
+              <div class="confirm-content">
+                <div *ngFor="let skill of _skills; let i = index">
+                  <div  *ngIf="_selectedSkills[i]">
+                    {{skill.name}}
+                  </div>
+                </div>
+              </div>
+              <div class="confirm-error" *ngIf="confirmInfo.skillError">{{confirmInfo.skillError}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div *ngIf="_step===_steps['error']">
+        {{_result}}
+      </div>
+
+      <div *ngIf="_step===_steps['success']">
+        {{_successInfo}}
+      </div>
+
+    </div>
+    <div class="bottom-btn-container container">
+      <button class="btn btn-default z-survival-btn bottom-left" *ngIf="_step!==_steps['sex']" (click)="previous()">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+      </button>
+      <button class="btn btn-default z-survival-btn bottom-right" *ngIf="_step!==_steps['confirm'] && _step!==_steps['result'] " (click)="next()">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i> Next
+      </button>
+      <button class="btn btn-default z-survival-btn bottom-right" *ngIf="_step===_steps['confirm']" (click)="confirm()">
+        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Create
+      </button>
+    </div>
+  </div>
+</div>

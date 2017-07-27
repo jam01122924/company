@@ -1,0 +1,12 @@
+<div class="z-me-out-container">
+  <div class="z-me-container">
+    <div class="z-men-content">
+      <div *ngIf="topMenu[0].active"><app-z-me-status></app-z-me-status></div>
+      <div *ngIf="topMenu[1].active"><app-z-me-skill></app-z-me-skill></div>
+      <div *ngIf="topMenu[2].active"><app-z-me-talent></app-z-me-talent></div>
+      <div *ngIf="topMenu[3].active"><app-z-me-equipment></app-z-me-equipment></div>
+      <div *ngIf="topMenu[4].active"><app-z-me-inventory></app-z-me-inventory></div>
+    </div>
+    <app-z-sub-header [menus]="topMenu" class="z-me-menu-container"></app-z-sub-header>
+  </div>
+</div>

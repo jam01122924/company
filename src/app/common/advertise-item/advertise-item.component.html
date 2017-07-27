@@ -1,0 +1,40 @@
+<div class="advertise-item-container" [ngStyle]="item.containerStyle">
+  <div class="advertise-item-box" 
+    [ngStyle]="{
+      'color': item.color?item.color:'white',
+      'background': item.bg?item.bg:'none', 
+      'background-image': item.bgImg?item.bgImg:'none',
+      'background-repeat': item.bgRepeat?item.bgRepeat:'no-repeat'
+    }">
+    <div class="row">
+      <div class="col-sm-6">
+        <img [src]="item.pic" 
+          [ngStyle]="item.picStyle">
+        <div *ngIf="item.fadeImg" [ngStyle]="item.fadeStyle"></div>
+      </div>
+      <div 
+        [ngStyle]="(w<768?{'background': 'rgba(0, 0, 0, 0.75)'}:{})" 
+        [className]="'col-sm-6 ' + (item.contentSide==='left'?'advertise-content-left':item.contentSide==='center'?'advertise-content-center':'advertise-content-right')">
+        <div style="position: relative; height: 100%;">
+          <div class="advertise-item-content" [ngStyle]="item.contentStyle">
+            <h1>{{item.header}}</h1>
+            <div class="advertise-item-bar"
+              [ngStyle]="{
+                'background-color': item.color?item.color:'white',
+                'border-top': '5px solid #DDDDDD'
+              }">
+            </div>
+            <div class="advertise-item-text">
+              <p *ngFor="let t of _currText">{{t}}</p>
+            </div>
+            <div class="advertise-item-button-container" *ngIf="item.btnLink">
+              <a class="btn-blue-light" [attr.href]="item.btnLink">{{item.btnText}}</a>
+            </div>
+          </div>
+          <div style="clear: both;"></div>
+        </div>
+      </div>
+      <div style="clear: both;"></div>
+    </div>
+  </div>
+</div>

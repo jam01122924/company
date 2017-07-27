@@ -1,0 +1,106 @@
+@import '../../../../color';
+@import '../../../../animate';
+
+.map-chart-container {
+  position: relative;
+
+  .fade-in-animate {
+    animation-name: animation-fadeLeftIn;
+    animation-duration: 1.2s;
+    -webkit-animation-name: animation-fadeLeftIn; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 1.2s; /* Chrome, Safari, Opera */
+  }
+  .fade-out-animate {
+    animation-name: animation-fadeLeftOut;
+    animation-duration: 1.2s;
+    -webkit-animation-name: animation-fadeLeftOut; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 1.2s; /* Chrome, Safari, Opera */
+    opacity: 0;
+  }
+  .fade-out-animate-fast {
+    animation-name: animation-fadeLeftOut;
+    animation-duration: 0.4s;
+    -webkit-animation-name: animation-fadeLeftOut; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 0.4s; /* Chrome, Safari, Opera */
+    opacity: 0;
+  }
+
+  #mapChart001 {
+    height: 520px;
+    max-height: 90vh;
+    z-index: 4;
+  }
+
+  .search-container {
+    position: absolute;
+    top: 10%;
+    z-index: 5;
+    max-width: 420px;
+
+    @media only screen and(max-height: 360px) {
+      top: 5px;
+    }
+    @media only screen and(min-height: 520px) {
+      top: 70px;
+    }
+    .map-form {
+      position: relative;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid $color-gray35;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.75);
+      .label {
+        color: $color-gray80;
+      }
+      .input-field {
+        margin-bottom: 6px;
+      }
+      input {
+        background-color: $color-gray15;
+        border: 1px solid $color-gray45;
+        color: $color-gray80;
+      }
+      select {
+        background-color: $color-gray15;
+        border: 1px solid $color-gray45;
+        color: $color-gray80;
+      }
+      option {
+        border: none;
+        background-color: $color-gray15;
+      }
+    }
+    .map-info {
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid $color-gray35;
+      border-radius: 5px;
+      @media only screen and(min-width: 640px) { 
+        margin: 20px;
+        padding: 20px;
+      }
+    }
+    .bot-btn-container {
+      margin: 12px 0 8px 0;
+      .btn-primary {
+        padding: 6px 20px;
+      }
+    }
+
+  }
+  .search-trigger-container {
+    position: absolute;
+    top: 80px;
+    z-index: 5;
+    padding: 15px;
+    color: $color-blue-light40;
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 2px solid $color-blue-light40;
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+  }
+  .search-trigger-container:hover {
+    color: $color-blue-light70;
+  }
+}

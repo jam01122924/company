@@ -1,0 +1,79 @@
+<div class="map-chart-container">
+  <div class="map-chart-content">
+
+    <div class="map-container">
+      <div id="mapChart001"></div>
+    </div>
+
+    <div [ngClass]="showSearchPanel?'search-container fade-in-animate':'search-container fade-out-animate'">
+      <div class="map-form">
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="label">
+              Country:
+            </div>
+            <div class="input-field">
+              <select class="form-control" [(ngModel)]="addressData.country" (change)="changeCountry($event.target.value)">
+                <option value="">select...</option>
+                <option *ngFor="let c of countryList" [value]="c.value">{{c.text}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="label">
+              city:
+            </div>
+            <div class="input-field">
+              <input type="text" class="form-control" [(ngModel)]="addressData.city">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 col-sm-4 col-md-5">
+            <div class="label">
+              Street Num:
+            </div>
+            <div class="input-field">
+              <input type="text" class="form-control" [(ngModel)]="addressData.streetNum">
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-7">
+            <div class="label">
+              Street Name:
+            </div>
+            <div class="input-field">
+              <input type="text" class="form-control" [(ngModel)]="addressData.streetName">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 col-sm-4 col-md-5">
+            <div class="label">
+              province/state:
+            </div>
+            <div class="input-field">
+              <select class="form-control" [(ngModel)]="addressData.province">
+                <option value="">select...</option>
+                <option *ngFor="let p of provinceList" [value]="p.value">{{p.text}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3 col-md-3">
+            <div class="label">
+              postal code:
+            </div>
+            <div class="input-field">
+              <input type="text" class="form-control" [(ngModel)]="addressData.postalCode">
+            </div>
+          </div>
+        </div>
+        <div class="bot-btn-container">
+          <button type="button" class="btn btn-primary" (click)="search()">Search</button>
+        </div>
+      </div>
+    </div>
+    <div [ngClass]="showSearchPanel?'search-trigger-container fade-out-animate-fast':'search-trigger-container fade-in-animate'" (click)="triggerSearchPanel()">
+      <i class="fa fa-search" aria-hidden="true"></i>
+    </div>
+  </div>
+</div>

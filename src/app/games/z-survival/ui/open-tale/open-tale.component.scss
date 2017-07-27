@@ -1,0 +1,44 @@
+@import '../../../../../color';
+.open-tale-intro-img-container {
+  width: 100vw;
+  height:100vh;
+  left: 0px;
+  top: 0px;
+  position: fixed;
+  overflow: hidden;
+  .open-tale-intro-img-relative-layer {
+    width: 100vw;
+    position: relative;
+    height: 100%;
+    .open-tale-intro-img {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      /* Set our transitions up. */
+      -webkit-animation: animation-fadeIn 1.6s; /* Safari, Chrome and Opera > 12.1 */
+      -moz-animation: animation-fadeIn 1.6s; /* Firefox < 16 */
+      -ms-animation: animation-fadeIn 1.6s; /* Internet Explorer */
+      -o-animation: animation-fadeIn 1.6s; /* Opera < 12.1 */
+      animation: animation-fadeIn 1.6s;
+    }
+  }
+}
+.open-tale-intro-text {
+  width: 94%;
+  margin: 3% 3% 20px 3%;
+  border: 1px double $color-green40;
+  background-color: $color-black-trans80;
+  min-height: 120px;
+  position: absolute;
+  bottom: 0;
+  padding: 10px 10px 20px 10px;
+  font-size: 16px;
+}
+.open-tale-intro-continue-container {
+  position: absolute;
+  bottom: 25px;
+  right: 35px;
+  color: $color-gray45;
+}

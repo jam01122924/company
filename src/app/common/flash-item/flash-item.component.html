@@ -1,0 +1,25 @@
+<div class="flash-item-container">
+  <div class="flash-item-box">
+    <div>
+      <h2>{{title}}</h2>
+      <div class="flash-item-word" (click)="start()">
+        {{currWord}}
+      </div>
+      <div class="flash-item-bar">
+      </div>
+      <div class="flash-item-button-container">
+        <div style="float: left">
+          <a class="btn-blue-light" (click)="BackToBeginning()"><i class="fa fa-step-backward" aria-hidden="true"></i></a>
+          <a class="btn-blue-light" (click)="start()" *ngIf="!play"><i class="fa fa-play" aria-hidden="true"></i></a>
+          <a class="btn-blue-light" (click)="stop()" *ngIf="play"><i class="fa fa-pause" aria-hidden="true"></i></a>
+        </div>
+        <div style="float: right">
+          <a class="btn-blue-light" (click)="adjustSpeed(this.speed-1)"><i class="fa fa-minus" aria-hidden="true"></i></a>
+          {{this.speedArray[this.speed]}} WPM
+          <a class="btn-blue-light" (click)="adjustSpeed(this.speed+1)"><i class="fa fa-plus" aria-hidden="true"></i></a>
+        </div>
+        <div style="float: none;"></div>
+      </div>
+    </div>
+  </div>
+</div>

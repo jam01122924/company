@@ -1,0 +1,48 @@
+@import "../../../../../../color";
+
+.z-bottom-menu-item-container {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+  .z-bottom-menu-item-content {
+    font-size: 1.5em;
+    text-align: center;
+    margin: auto;
+    padding: 10px 0;
+    border: 1px solid $color-green40;
+    width: 100%;
+    a {
+      color: $color-green30;
+    }
+    a:hover {
+      color: $color-green50;
+      text-decoration: none;
+    }
+    a:link {
+      text-decoration: none;
+    }
+  }
+}
+@media screen and (min-width: 500px) {
+  .z-bottom-menu-item-text {
+    font-size: 1em;
+  }
+}
+@media screen and (max-width: 499px) and (min-width: 340px)  {
+  .z-bottom-menu-item-text {
+    font-size: 0.8em;
+    display: block;
+  }
+}
+@media screen and (max-width: 339px) and (min-width: 290px) {
+  .z-bottom-menu-item-text {
+    font-size: 0.6em;
+    display: block;
+  }
+}
+@media screen and (max-width: 289px) {
+  .z-bottom-menu-item-text {
+    font-size: 0.48em;
+    display: block;
+  }
+}

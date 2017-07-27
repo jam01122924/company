@@ -1,0 +1,47 @@
+<div class="solution-main-container">
+  <div class="solution-main-content">
+    <div class="solution-top-content">
+      <app-advertise-item [item]="advertiseItemArray[0]" [w]="w"></app-advertise-item>
+    </div>
+    <div class="solution-choice-container">
+      <img class="top-edge" src="assets/imgs/selfie/paper_edge.png" width="100%" *ngIf="w>=720">
+      <div class="home-white-space-container">
+        <div class="solution-select-container" *ngIf="showContent===0">
+          <div class="solution-select">
+            <h1>Description</h1>
+            <div>
+              <app-select-array *ngFor="let arr of selectArray; let i = index;" [currName]="selectArray[i]" [color]="selectArrayColor[i]" [type]="'selection'"></app-select-array>
+            </div>
+            <div class="solution-btn-container">
+              <a class="btn btn-default" (click)="calcResult()">Get Result</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="solution-select-container" *ngIf="showContent===1">
+          <div class="solution-select">
+            <h1>Plan</h1>
+            <div>
+              <app-select-array *ngFor="let arr of planArray; let i = index;" [currName]="planArray[i]" [color]="selectArrayColor[i]" [type]="'plan'"></app-select-array>
+            </div>
+            <div class="solution-btn-container">
+              <a class="btn btn-default" (click)="repickChoice()">Repick You Choice</a>
+              <a class="btn btn-default" (click)="getPrice()">Get Invoice</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="solution-select-container" *ngIf="showContent===2">
+          <div class="solution-select">
+            <h1>Price</h1>
+            
+            <div class="solution-btn-container">
+              <a class="btn btn-default" (click)="repickChoice()">Repick You Choice</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img class="bottom-edge" src="assets/imgs/selfie/paper_edge_down.png" width="100%" *ngIf="w>=720">
+    </div>
+  </div>
+</div>

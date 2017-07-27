@@ -1,0 +1,20 @@
+<div class="select-array-container">
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="select-array-title">
+        <i [ngClass]="data.icon" [ngStyle]="{'color': this.color}"></i>
+        <span class="select-array-title-text">{{data.title}}</span>
+      </div>
+    </div>
+    <div class="col-sm-7">
+      <div class="select-array-content">
+        <a class="btn btn-default" (click)="minus()"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+        <span>
+          <div class="select-array-text">
+            {{data&&data.value?data.value[currIndex]:''}}
+          </div>
+        </span>
+        <a class="btn btn-default" (click)="plus()"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'general';
+@import 'parallax';
+
+.clearfix {
+  float: none !important;
+  overflow: auto;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+     -khtml-user-select: none; /* Konqueror */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+.warn {
+  color: $color-warning;
+}
+.danger {
+  color: $color-danger;
+}
+.info {
+  color: $color-info;
+}
+.success {
+  color: $color-success;
+}
+
+.pointer {
+  cursor: pointer !important;
+}
+
+.container {
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+

@@ -1,0 +1,45 @@
+@import '../../../font';
+@import '../../../color';
+
+.footer-container{
+  width: 100vw;
+  display: block;
+  .footer-content-container {
+    width: 100vw;
+    background: $color-gray15;
+    color: $color-gray75;
+    position: relative;
+    display: block;
+    padding: 20px;
+    .footer-item {
+      padding: 30px;
+      padding-bottom: 45px;
+      min-height: 180px;
+      title {
+        display: block;
+        color: $color-gray95;
+        margin-bottom: 20px;
+        font-size: 1.4em;
+      }
+      p {
+        color: $color-gray75;
+      }
+    }
+    .footer-logo {
+      img {
+        width: 20%;
+        height: auto;
+      }
+    }
+  }
+  .footer-copyright {
+    background: black;
+    color: $color-gray75;
+    text-align: center;
+    padding: 25px;
+    width: 100vw;
+    strong {
+      color: $color-gray95;
+    }
+  }
+}

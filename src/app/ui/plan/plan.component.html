@@ -1,0 +1,12 @@
+<div class="plan-container">
+  <div class="plan-content">
+<!--     <div class="plan-top-content">
+      <app-advertise-item [item]="advertiseItemArray[0]" [w]="w"></app-advertise-item>
+    </div> -->
+    <div class="plan-main-content">
+      <div class="plan-item-out-container" *ngFor="let planItem of planArray">
+        <app-plan-item planData="planItem"></app-plan-item>
+      </div>
+    </div>
+  </div>
+</div>
