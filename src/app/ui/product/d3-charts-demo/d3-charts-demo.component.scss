@@ -1,0 +1,28 @@
+@import '../../../../color';
+@import '../../../../animate';
+
+.d3-charts-demo-container {
+  position: relative;
+  .chart-selection {
+    margin: 10px;
+    border: solid 1px $color-blue30;
+    cursor: pointer;
+    opacity: 0.4;
+    color: $color-gray80;
+  }
+  .chart-selection:hover {
+    opacity: 1;
+    border: solid 1px $color-blue-light40;
+    animation-name: animation-lightUp;
+    animation-duration: 0.8s;
+    -webkit-animation-name: animation-lightUp; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 0.8s; /* Chrome, Safari, Opera */
+    color: $color-gray80;
+  }
+  .chart-selection-active {
+    margin: 10px;
+    opacity: 1;
+    border: solid 1px $color-blue-light40;
+    color: $color-gray80;
+  }
+}

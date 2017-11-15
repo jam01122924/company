@@ -1,0 +1,12 @@
+<div class="gallery-list-item-container">
+  <div class="gallery-list-item-content">
+    <div class="item-content" (click)="trigger()">
+      <i [ngClass]="'fa fa-' + icon" aria-hidden="true"></i> {{data.name}}
+    </div>
+    <div class="sub-folder-list" *ngIf="isOpen && data.subFolder">
+      <div class="sub-folder" *ngFor="let sub of data.subFolder;">
+        <app-gallery-list-item [data]="sub"></app-gallery-list-item>
+      </div>
+    </div>
+  </div>
+</div>

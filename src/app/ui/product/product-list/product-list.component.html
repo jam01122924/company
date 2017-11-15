@@ -1,0 +1,21 @@
+<div class="product-list-container">
+  <div class="product-list-content">
+    <div class="product-list-selector">
+      <app-product-list-item *ngFor="let item of productItemList; let i = index" [itemData]="item" [active]="selectedProduct===i" (click)="selectedProduct = i;"></app-product-list-item>
+    </div>
+    <div class="product-demo">
+      <div class="product-map" *ngIf="selectedProduct===0">
+        <app-map-chart></app-map-chart>
+      </div>
+      <div class="product-charts" *ngIf="selectedProduct===1">
+        <app-d3-charts-demo></app-d3-charts-demo>
+      </div>
+      <div class="product-3d" *ngIf="selectedProduct===2">
+        <app-3d-demo></app-3d-demo>
+      </div>
+      <div class="product-website" *ngIf="selectedProduct===3">
+        website
+      </div>
+    </div>
+  </div>
+</div>

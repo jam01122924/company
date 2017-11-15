@@ -117,86 +117,96 @@ export class GeoService {
     return this.countryData;
   }
 
-  search(param, zoomSize) {
+  search(param, zoomSize, id) {
     this.httpS.get(this._vs.url.map.openStreetMapSearch, param).subscribe((data)=>{
       this.geoData = data&&data.length?data:this.defaultLocation;
       this.nullAddress = !!data.length;
-      this.createMap('mapChart001', zoomSize);
+      this.createMap(id, zoomSize);
     });
   }
-
-  createMap(id, zoomSize) {
-    if(!this.map) {
-      this.map = L.map(id)
+  destroyMap() {
+    // destroy map
+    if (this.map != null) {
+      // if (this.maprouter != null)
+      //    this.maprouter.getPlan().setWaypoints([]);
+      // if (this.maplayer != null)
+      //    this.map.removeLayer(this.maplayer);
+      // var maplayer;
+      this.map.remove();
+      this.map = null;
     }
+  }
+  createMap(id, zoomSize) {
+    if(document.getElementById(id)) {
+      this.map = L.map(id)
+      this.map.setView([parseFloat(this.geoData[0].lat), parseFloat(this.geoData[0].lon)], zoomSize);
+      // go http://leaflet-extras.github.io/leaflet-providers/preview/index.html for more free tileLayer
+      L.tileLayer(this._vs.url.map.tileLayer, {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(this.map);
+      this.currentMapData.bounds = this.map.getBounds();
 
-    this.map.setView([parseFloat(this.geoData[0].lat), parseFloat(this.geoData[0].lon)], zoomSize);
-    // go http://leaflet-extras.github.io/leaflet-providers/preview/index.html for more free tileLayer
-    L.tileLayer(this._vs.url.map.tileLayer, {
-      maxZoom: 19,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(this.map);
-    this.currentMapData.bounds = this.map.getBounds();
+      // listen to zoom event
+      this.map.on('zoomend', (e)=>{
+        this.mapZoomed(e);
+      });
 
-    // listen to zoom event
-    this.map.on('zoomend', (e)=>{
-      this.mapZoomed(e);
-    });
+      let icon = this.geoData[0].icon?('<img src="' + this.geoData[0].icon + '" style="margin-top: -8px;">'):'i'
 
-    let icon = this.geoData[0].icon?('<img src="' + this.geoData[0].icon + '" style="margin-top: -8px;">'):'i'
-
-    this.addMark('div-icon-mark', icon, {
-      background: 'rgb(6, 152, 251)',
-      color: 'white',
-      width: '28px',
-      height: '28px',
-      fontSize: '20px',
-      'font-weight': 'bolder',
-      borderRadius: '16px',
-      padding: '0',
-      textAlign: 'center',
-    });
+      this.addMark('div-icon-mark', icon, {
+        background: 'rgb(6, 152, 251)',
+        color: 'white',
+        width: '28px',
+        height: '28px',
+        fontSize: '20px',
+        'font-weight': 'bolder',
+        borderRadius: '16px',
+        padding: '0',
+        textAlign: 'center',
+      });
+    }
   }
 
   addMark(className, htmlContent, style) {
     // var marker = L.marker([this.geoData[0].lat, this.geoData[0].lon], {
     //   icon: this.LData.markIcon
     // }).addTo(this.map);
-    let markContent = 
-        "<style>" + 
+    let markContent =
+        "<style>" +
             ".map-mark-title {color: #E8B334; font-size: 12px; margin-right: 10px;}" +
             ".map-mark-head-icon {padding-bottom: 10px; margin-right: 10px;}" +
         "</style>" +
         "<h4>" + (this.geoData[0].icon?("<img class='map-mark-head-icon' src='" + this.geoData[0].icon + "'>"):'') + "Info</h4>" +
         "<div>" +
             "<div>" +
-                "<span class='map-mark-title'>ID:</span>" + 
-                "<span>" + 
-                    this.geoData[0].place_id + 
+                "<span class='map-mark-title'>ID:</span>" +
+                "<span>" +
+                    this.geoData[0].place_id +
                 "</span>" +
             "</div>" +
             "<div>" +
-                "<span class='map-mark-title'>Location:</span>" + 
-                "<span>" + 
-                    this.geoData[0].display_name + 
+                "<span class='map-mark-title'>Location:</span>" +
+                "<span>" +
+                    this.geoData[0].display_name +
                 "</span>" +
             "</div>" +
             "<div>" +
-                "<span class='map-mark-title'>Type:</span>" + 
-                "<span>" + 
-                    this.geoData[0].type + 
+                "<span class='map-mark-title'>Type:</span>" +
+                "<span>" +
+                    this.geoData[0].type +
                 "</span>" +
             "</div>" +
             "<div>" +
-                "<span class='map-mark-title'>Position:</span>" + 
-                "<span>" + 
-                    "lat: " + this.geoData[0].lat + ", lon: " + this.geoData[0].lon + 
+                "<span class='map-mark-title'>Position:</span>" +
+                "<span>" +
+                    "lat: " + this.geoData[0].lat + ", lon: " + this.geoData[0].lon +
                 "</span>" +
             "</div>" +
             "<div>" +
-                "<span class='map-mark-title'>Importance:</span>" + 
-                "<span>" + 
-                    this.geoData[0].importance + 
+                "<span class='map-mark-title'>Importance:</span>" +
+                "<span>" +
+                    this.geoData[0].importance +
                 "</span>" +
             "</div>" +
         "</div>"

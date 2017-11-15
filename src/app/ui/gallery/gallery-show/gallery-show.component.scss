@@ -1,0 +1,9 @@
+@import '../../../../color';
+
+.gallery-show-container {
+  border: 1px solid $color-gray65;
+  background-color: rgba(0, 0, 0, 0.7);
+  .gallery-show-content {
+    margin: 20px;
+  }
+}

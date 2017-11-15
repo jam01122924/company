@@ -1,9 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+
+
 import { AlertModule, CarouselModule, AccordionModule, DropdownModule, ProgressbarModule, TabsModule } from 'ng2-bootstrap';
+
+// // ********************** angular-modal-gallery *****************************
+// import 'hammerjs'; // Mandatory for angular-modal-gallery 3.x.x or greater (`npm i --save hammerjs`)
+// import 'mousetrap'; // Mandatory for angular-modal-gallery 3.x.x or greater (`npm i --save mousetrap`)
+// import { ModalGalleryModule } from 'angular-modal-gallery'; // <----------------- angular-modal-gallery library import
+// // **************************************************************************
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './common/login/login.component';
@@ -22,6 +31,9 @@ import { DeviceService } from './services/device.service';
 import { MenuService } from './services/menu.service';
 import { GeoService } from './services/geo.service';
 import { SelectArrayService } from './services/selectArray.service';
+import { GalleryService } from './services/gallery.service';
+
+
 import { GamesComponent } from './ui/games/games.component';
 
 // Z-Survival Game:
@@ -63,6 +75,22 @@ import { PlanItemComponent } from './common/plan-item/plan-item.component';
 import { PlanItemListComponent } from './common/plan-item/plan-item-list/plan-item-list.component';
 import { ProductComponent } from './ui/product/product.component';
 import { MapChartComponent } from './ui/product/map-chart/map-chart.component';
+import { ProductListComponent } from './ui/product/product-list/product-list.component';
+import { ProductListItemComponent } from './ui/product/product-list/product-list-item/product-list-item.component';
+import { ThreedDemoComponent } from './ui/product/3d-demo/3d-demo.component';
+import { ThreeDCanvasComponent } from './common/three-d-canvas/three-d-canvas.component';
+import { BarChartComponent } from './common/charts/bar-chart/bar-chart.component';
+import { D3ChartsDemoComponent } from './ui/product/d3-charts-demo/d3-charts-demo.component';
+import { GalleryComponent } from './ui/gallery/gallery.component';
+import { GalleryListComponent } from './ui/gallery/gallery-list/gallery-list.component';
+import { GalleryShowComponent } from './ui/gallery/gallery-show/gallery-show.component';
+import { GalleryListItemComponent } from './ui/gallery/gallery-list/gallery-list-item/gallery-list-item.component';
+import { CarouselComponent } from './common/carousel/carousel.component';
+import { CarouselImageListComponent } from './common/carousel/carousel-image-list/carousel-image-list.component';
+import { CarouselImageComponent } from './common/carousel/carousel-image-list/carousel-image/carousel-image.component';
+import { CarouselThumbNailListComponent } from './common/carousel/carousel-thumb-nail-list/carousel-thumb-nail-list.component';
+import { CarouselThumbNailComponent } from './common/carousel/carousel-thumb-nail-list/carousel-thumb-nail/carousel-thumb-nail.component';
+
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -70,7 +98,8 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'plan', component: PlanComponent },
   { path: 'solution', component: SolutionComponent },
-  { path: 'product', component: ProductComponent },
+  { path: 'plan', component: PlanComponent },
+  { path: 'gallery', component: GalleryComponent },
   { path: 'games', component: GamesComponent },
   { path: 'z-survival', component: ZSurvivalComponent,
     children: [
@@ -140,7 +169,22 @@ const appRoutes: Routes = [
     PlanItemComponent,
     PlanItemListComponent,
     ProductComponent,
-    MapChartComponent
+    MapChartComponent,
+    ProductListComponent,
+    ProductListItemComponent,
+    ThreedDemoComponent,
+    ThreeDCanvasComponent,
+    BarChartComponent,
+    D3ChartsDemoComponent,
+    GalleryComponent,
+    GalleryListComponent,
+    GalleryShowComponent,
+    GalleryListItemComponent,
+    CarouselComponent,
+    CarouselImageComponent,
+    CarouselThumbNailListComponent,
+    CarouselThumbNailComponent,
+    CarouselImageListComponent
   ],
   imports: [
     AlertModule,
@@ -150,13 +194,14 @@ const appRoutes: Routes = [
     DropdownModule,
     ProgressbarModule,
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
     MainPipe
   ],
-  providers: [HttpService, AuthService, ValueService, TokenService, CookieService, DeviceService, MenuService, GeoService, SelectArrayService],
+  providers: [HttpService, AuthService, ValueService, TokenService, CookieService, DeviceService, MenuService, GeoService, SelectArrayService, GalleryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -16,7 +16,10 @@ export class MapChartComponent implements OnInit {
   mapChart: any;
   showSearchPanel: boolean;
   constructor(private _gs: GeoService, private httpS: HttpService) {
-    this.countryList = _gs.getCountry();
+  }
+
+  ngOnInit() {
+    this.countryList = this._gs.getCountry();
     this.addressData = {
       country: 'CA',
       province: 'BC',
@@ -27,11 +30,12 @@ export class MapChartComponent implements OnInit {
       zoomSize: 16,
     };
     this.changeCountry('CA');
-  }
-
-  ngOnInit() {
     this.search();
     this.showSearchPanel = true;
+  }
+
+  ngOnDestroy() {
+    this._gs.destroyMap();
   }
 
   changeCountry(country) {
@@ -47,7 +51,7 @@ export class MapChartComponent implements OnInit {
       postalcode: this.addressData.postalcode,
       format: 'json'
     }
-    this._gs.search(param, this.addressData.zoomSize);
+    this._gs.search(param, this.addressData.zoomSize, 'mapChart001');
     this.showSearchPanel = false;
   }
 
@@ -55,4 +59,3 @@ export class MapChartComponent implements OnInit {
     this.showSearchPanel = !this.showSearchPanel;
   }
 }
-

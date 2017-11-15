@@ -1,0 +1,28 @@
+<div class="d3-charts-demo-container">
+  <div class="d3-charts-demo-content">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-lg-3">
+        <div class="row">
+          <div class="col-xs-6 col-md-4 col-lg-3" *ngFor="let chart of chartList; let i = index" (click)="chartSelect(i)" >
+            <div [ngClass]="currentChart===i?'chart-selection-active':'chart-selection'">
+              {{chart}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-lg-9">
+        <div class="charts-container">
+          <div *ngIf="currentChart===0">
+            <app-bar-chart *ngIf="chartData" [data]="chartData" (mouseenter)="startDataGeneration()" (mouseleave)="stopDataGeneration()"></app-bar-chart>
+          </div>
+          <div *ngIf="currentChart===1">
+          </div>
+          <div *ngIf="currentChart===2">
+          </div>
+          <div *ngIf="currentChart===3">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

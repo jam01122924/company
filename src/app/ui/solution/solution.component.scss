@@ -19,12 +19,23 @@
     }
     .solution-choice-container {
         margin: 60px 0 0 0;
-        background: white;
+        overflow-x: hidden;
+        @media only screen and(max-width:719px) {
+            margin: 20px 0 0 0;
+        }
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+2,163f6f+15,163f6f+15,062f4f+45,062f4f+55,163f6f+85,ffffff+98 */
+        background: #ffffff; /* Old browsers */
+        background: -moz-linear-gradient(top, #ffffff 8%, #163f6f 20%, #062f4f 45%, #062f4f 55%, #163f6f 80%, #ffffff 92%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #ffffff 8%,#163f6f 20%,#062f4f 45%,#062f4f 55%,#163f6f 80%,#ffffff 92%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #ffffff 8%,#163f6f 20%,#062f4f 45%,#062f4f 55%,#163f6f 80%,#ffffff 92%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
         .top-edge {
             background: black;
+            min-width: 768px;
         }
         .bottom-edge {
             background: $color-gray15;
+            min-width: 768px;
         }
     }
     .solution-select-container {
@@ -32,10 +43,10 @@
         max-width: 960px;
         .solution-select {
             h1 {
-                color: $color-gray5;
+                color: $color-gray95;
             }
             margin: 5px;
-            background: white;
+            background: none;
         }
         .solution-btn-container {
             .btn-black-blue {

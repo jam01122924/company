@@ -1,0 +1,14 @@
+@import '../../../../color';
+
+.gallery-list-container {
+  border: 1px solid $color-gray65;
+  height: 80vh;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  @media only screen and (max-width: 767px) {
+    height: 35vh;
+  }
+  .gallery-list-content {
+    margin: 10px;
+  }
+}

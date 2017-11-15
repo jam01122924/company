@@ -1,0 +1,6 @@
+<div [ngClass]="active?'product-list-item-container-active':'product-list-item-container'">
+  <div class="product-list-item-content">
+    <div class="product-list-item-icon"><i [ngClass]="'fa ' + itemData.icon" aria-hidden="true"></i></div>
+    <div class="product-list-item-name">{{itemData.name}}</div>
+  </div>
+</div>

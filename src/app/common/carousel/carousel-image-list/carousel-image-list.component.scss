@@ -1,0 +1,36 @@
+.carousel-image-list-content {
+  width: 100%;
+  height: calc(60vh - 40px);
+  position: relative;
+  overflow: hidden;
+  .carousel-image-list-images {
+    width: 100%;
+    height: calc(60vh - 40px);
+    position: absolute;
+    .carousel-image-list-image-container{
+      width: 100%;
+      position: absolute;
+      height: calc(60vh - 40px);
+    }
+    // @for $i from 0 to 50 {
+    //   .carousel-image-list-image-container:nth-child(#{$i}) {
+    //     width: 100%;
+    //     position: absolute;
+    //     left: ($i - 1) * 100%;
+    //   }
+    // }
+  }
+
+  .carousel-image-list-btns {
+    z-index: 1100;
+    margin-top: calc(30vh - 40px);
+    .roll-left {
+      font-size: 40px;
+
+    }
+    .roll-right {
+      font-size: 40px;
+
+    }
+  }
+}

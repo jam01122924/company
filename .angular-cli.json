@@ -25,7 +25,11 @@
         "styles.min.css"
       ],
       "scripts": [
-        "../node_modules/leaflet/dist/leaflet.js"
+        "../node_modules/leaflet/dist/leaflet.js",
+        "../node_modules/three/build/three.js",
+        "../node_modules/three/examples/js/loaders/STLLoader.js",
+        "../node_modules/three/examples/js/controls/TrackballControls.js",
+        "../node_modules/three/examples/js/loaders/ColladaLoader.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

@@ -8,9 +8,12 @@ import { MapChartComponent } from './map-chart/map-chart.component';
 })
 export class ProductComponent implements OnInit {
 
-  constructor() { }
+  currentDemo: number;
+  constructor() {
+  }
 
   ngOnInit() {
+    this.currentDemo = 0;
   }
 
 }

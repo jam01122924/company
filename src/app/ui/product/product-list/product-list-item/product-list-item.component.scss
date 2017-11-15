@@ -1,0 +1,38 @@
+@import '../../../../../font';
+@import '../../../../../color';
+@import '../../../../../animate';
+@import '../../../../../general';
+
+.product-list-item-container {
+  display: inline-block;
+  margin: 0px 20px;
+  cursor: pointer;
+  border-bottom: 5px solid transparent;
+  opacity: 0.4;
+  animation-name: animation-lightDown;
+  animation-duration: 0.8s;
+  -webkit-animation-name: animation-lightDown; /* Chrome, Safari, Opera */
+  -webkit-animation-duration: 0.8s; /* Chrome, Safari, Opera */
+}
+.product-list-item-content {
+  margin: 10px;
+  .product-list-item-icon {
+    font-size: 65px;
+  }
+}
+.product-list-item-container:hover {
+  opacity: 1;
+  border-bottom: 5px solid $color-blue-light40;
+  animation-name: animation-lightUp;
+  animation-duration: 0.8s;
+  -webkit-animation-name: animation-lightUp; /* Chrome, Safari, Opera */
+  -webkit-animation-duration: 0.8s; /* Chrome, Safari, Opera */
+  color: $color-yellow40;
+}
+.product-list-item-container-active {
+  display: inline-block;
+  margin: 0px 20px;
+  cursor: pointer;
+  opacity: 1;
+  border-bottom: 5px solid $color-blue-light40;
+}

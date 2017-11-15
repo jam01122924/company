@@ -1,0 +1,40 @@
+<div class="carousel-image-list-container">
+  <div class="carousel-image-list-content">
+    <div class="carousel-image-list-images">
+      <div class="carousel-image-list-image-container"
+        *ngFor="let image of data.photos; let i=index"
+        [ngStyle]="{'left': (i - currIndex)*100 + '%'}"
+        [@scrollAnimation]="{value: scrollDirection, animationIndex: (i - currIndex)}"
+      >
+        <app-carousel-image
+          [src]="image.url"
+          [type]="image.type"
+        ></app-carousel-image>
+      </div>
+
+      <div class="carousel-image-list-image-container"
+        *ngFor="let image of data.photos; let i=index"
+        [ngStyle]="{'left': (i - currIndex)*100 + '%'}"
+        [@scrollAnimation]="{value: scrollDirection, animationIndex: (i - currIndex)}"
+      >
+        <app-carousel-image
+          [src]="image.url"
+          [type]="image.type"
+        ></app-carousel-image>
+      </div>
+    </div>
+    <div class="carousel-image-list-btns">
+      <div class="left">
+        <div class="roll-left carousel-control-btn" (click)="changePicture(-1)">
+          <i class="fa fa-angle-left" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="right">
+        <div class="roll-left carousel-control-btn" (click)="changePicture(1)">
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>

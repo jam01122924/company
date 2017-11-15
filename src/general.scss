@@ -12,6 +12,10 @@
   display: table;
   clear: both;
 }
+.clear {
+	clear: both;
+	float: none;
+}
 .align-left {
   text-align: left;
 }

@@ -1,0 +1,52 @@
+@import '../../../animate';
+
+.carousel-content {
+  position: relative;
+  width: 100%;
+  height: calc(80vh - 40px);
+  .bg-mask {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 999;
+  }
+  .carousel-modal {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    color: #EEEEEE;
+    .top {
+      width: 100%;
+      position: absolute;
+      z-index: 1100;
+      .close-btn {
+        margin: 10px 15px 10px 10px;
+      }
+    }
+    .mid {
+      z-index: 2001;
+
+    }
+  }
+
+
+  .carousel-control-btn {
+    padding: 15px;
+    animation-name: animation-lightDown;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+    line-height: 40px;
+    font-size: 40px;
+    text-shadow: 0 0 3px #000000;
+    cursor: pointer;
+  }
+  .carousel-control-btn:hover {
+    animation-name: animation-lightUp;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+  }
+}
