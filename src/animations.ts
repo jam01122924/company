@@ -6,5 +6,5 @@ export var fadeAnimation = animation([
 ], {params: {time: "1s"}});
 
 export var slideAnimation = animation([
-  animate("{{ time }}", style({ left: "{{ left }}" }))
+  animate("{{ time }} ease-out", style({ left: "{{ left }}" }))
 ], {params: {time: "1s"}});

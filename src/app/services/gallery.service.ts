@@ -39,11 +39,23 @@ export class GalleryService {
 										type: 'w'
 									},
 									{
-										title: 'test3',
-										des: 'test3',
-										url: 'https://i.imgur.com/0a0ZnTv.jpg',
+										title: '堵，还在西雅图',
+										des: '繁忙的西雅图，堵到黄昏',
+										url: 'https://i.imgur.com/XpqTOPC.jpg',
 										type: 'w'
 									},
+									{
+										title: '堵，依旧在西雅图',
+										des: '繁忙的西雅图，堵到夕阳西下',
+										url: 'https://i.imgur.com/DBUNTcg.jpg',
+										type: 'w'
+									},
+									{
+										title: '夜路之上',
+										des: '前往Astoria的超长跨海大桥',
+										url: 'https://i.imgur.com/8IPQ2L1.jpg',
+										type: 'w'
+									}
 								]
 							},
 							{

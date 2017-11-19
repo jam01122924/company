@@ -20,7 +20,10 @@ export class GalleryShowComponent implements OnInit {
     this.data = this._gs.data[0].subFolder[0].subFolder[0];
     this.carouselConfig = {
       fullSize: true,
-      animation: 'fade',
+      animationConfig: {
+        type: 'fade',
+        time: 0.8,
+      },
 
     }
   }

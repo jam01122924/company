@@ -1,25 +1,54 @@
-<div class="carousel-image-list-container">
+<div class="carousel-image-list-container" #imgList
+  [ngClass]="{'fullScreen-carousel-image-list-container': fullScreen }">
   <div class="carousel-image-list-content">
     <div class="carousel-image-list-images">
       <div class="carousel-image-list-image-container"
-        *ngFor="let image of data.photos; let i=index"
-        [ngStyle]="{'left': (i - currIndex)*100 + '%'}"
-        [@scrollAnimation]="{value: scrollDirection, animationIndex: (i - currIndex)}"
+        [ngClass]="{
+          'widescreen-1-carousel-image-list-image-container': w/h>1.56&&w/h<=1.63,
+          'widescreen-2-carousel-image-list-image-container': w/h>1.63&&w/h<=1.70,
+          'widescreen-3-carousel-image-list-image-container': w/h>1.70&&w/h<=1.78,
+          'widescreen-4-carousel-image-list-image-container': w/h>1.78
+        }"
+        [ngStyle]="{'left': '-120%'}"
+        [@scrollAnimation]="leftCarouselImage"
+        *ngIf="currIndex>0"
       >
         <app-carousel-image
-          [src]="image.url"
-          [type]="image.type"
+          [src]="data.photos[currIndex-1].url"
+          [type]="data.photos[currIndex-1].type"
         ></app-carousel-image>
       </div>
 
       <div class="carousel-image-list-image-container"
-        *ngFor="let image of data.photos; let i=index"
-        [ngStyle]="{'left': (i - currIndex)*100 + '%'}"
-        [@scrollAnimation]="{value: scrollDirection, animationIndex: (i - currIndex)}"
+        [ngClass]="{
+          'widescreen-1-carousel-image-list-image-container': w/h>1.56&&w/h<=1.63,
+          'widescreen-2-carousel-image-list-image-container': w/h>1.63&&w/h<=1.70,
+          'widescreen-3-carousel-image-list-image-container': w/h>1.70&&w/h<=1.78,
+          'widescreen-4-carousel-image-list-image-container': w/h>1.78
+        }"
+        [ngStyle]="{'left': '0'}"
+        [@scrollAnimation]="centerCarouselImage"
       >
         <app-carousel-image
-          [src]="image.url"
-          [type]="image.type"
+          [src]="data.photos[currIndex].url"
+          [type]="data.photos[currIndex].type"
+        ></app-carousel-image>
+      </div>
+
+      <div class="carousel-image-list-image-container"
+        [ngClass]="{
+          'widescreen-1-carousel-image-list-image-container': w/h>1.56&&w/h<=1.63,
+          'widescreen-2-carousel-image-list-image-container': w/h>1.63&&w/h<=1.70,
+          'widescreen-3-carousel-image-list-image-container': w/h>1.70&&w/h<=1.78,
+          'widescreen-4-carousel-image-list-image-container': w/h>1.78
+        }"
+        [ngStyle]="{'left': '120%'}"
+        [@scrollAnimation]="rightCarouselImage"
+        *ngIf="currIndex<data.photos.length-1"
+      >
+        <app-carousel-image
+          [src]="data.photos[currIndex+1].url"
+          [type]="data.photos[currIndex+1].type"
         ></app-carousel-image>
       </div>
     </div>
@@ -35,6 +64,14 @@
         </div>
       </div>
       <div class="clear"></div>
+    </div>
+    <div class="carousel-bot-btns">
+      <div class="carousel-control-btn" (click)="enterfullScreen()" *ngIf="!fullScreen">
+        <i class="fa fa-expand" aria-hidden="true"></i>
+      </div>
+      <div class="carousel-control-btn" (click)="exitfullScreen()" *ngIf="fullScreen">
+        <i class="fa fa-compress" aria-hidden="true"></i>
+      </div>
     </div>
   </div>
 </div>
