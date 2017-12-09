@@ -9,11 +9,11 @@
       <div class="map-form" *ngIf="showSearchPanel">
         <div class="row">
           <div class="col-xs-6">
-            <div class="label">
+            <div class="label country-field">
               Country:
             </div>
             <div class="input-field country-field">
-              <select class="form-control" [(ngModel)]="addressData.country" (change)="changeCountry($event.target.value)">
+              <select class="form-control" [(ngModel)]="_gs.currentData.addressData.country" (change)="changeCountry($event.target.value)">
                 <option value="">select...</option>
                 <option *ngFor="let c of countryList" [value]="c.value">{{c.text}}</option>
               </select>
@@ -24,7 +24,7 @@
               city:
             </div>
             <div class="input-field">
-              <input type="text" class="form-control" [(ngModel)]="addressData.city">
+              <input type="text" class="form-control" [(ngModel)]="_gs.currentData.addressData.city">
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@
               Street Num:
             </div>
             <div class="input-field">
-              <input type="text" class="form-control" [(ngModel)]="addressData.streetNum">
+              <input type="text" class="form-control" [(ngModel)]="_gs.currentData.addressData.streetNum">
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-7">
@@ -42,7 +42,7 @@
               Street Name:
             </div>
             <div class="input-field">
-              <input type="text" class="form-control" [(ngModel)]="addressData.streetName">
+              <input type="text" class="form-control" [(ngModel)]="_gs.currentData.addressData.streetName">
             </div>
           </div>
         </div>
@@ -52,7 +52,7 @@
               province/state:
             </div>
             <div class="input-field">
-              <select class="form-control" [(ngModel)]="addressData.province">
+              <select class="form-control" [(ngModel)]="_gs.currentData.addressData.province">
                 <option value="">select...</option>
                 <option *ngFor="let p of provinceList" [value]="p.value">{{p.text}}</option>
               </select>
@@ -60,10 +60,10 @@
           </div>
           <div class="col-xs-6 col-sm-5 col-md-5">
             <div class="label">
-              postal code:
+              postal code: {{_gs.currentData.addressData.postalCode}}
             </div>
             <div class="input-field">
-              <input type="text" class="form-control" [(ngModel)]="addressData.postalCode">
+              <input type="text" class="form-control" [(ngModel)]="_gs.currentData.addressData.postalcode">
             </div>
           </div>
         </div>

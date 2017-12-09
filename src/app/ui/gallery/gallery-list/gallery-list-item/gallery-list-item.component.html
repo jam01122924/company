@@ -3,9 +3,9 @@
     <div class="item-content" (click)="trigger()">
       <i [ngClass]="'fa fa-' + icon" aria-hidden="true"></i> {{data.name}}
     </div>
-    <div class="sub-folder-list" *ngIf="isOpen && data.subFolder">
-      <div class="sub-folder" *ngFor="let sub of data.subFolder;">
-        <app-gallery-list-item [data]="sub"></app-gallery-list-item>
+    <div class="sub-folder-list" *ngIf="isOpen && data.subFolder && indexArr">
+      <div class="sub-folder" *ngFor="let sub of data.subFolder; let i = index">
+        <app-gallery-list-item [data]="sub" [indexArr]="indexArr.concat(i)"></app-gallery-list-item>
       </div>
     </div>
   </div>

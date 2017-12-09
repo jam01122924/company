@@ -1,0 +1,19 @@
+<div class="snippet-container" *ngIf="data">
+  <div class="snippet-content">
+    <div class="snippet-title" *ngIf="data.title">
+      {{data.title}}
+    </div>
+
+    <div class="snippet-img" *ngIf="data.image">
+      <img [src]="data.image" />
+    </div>
+
+    <div class="snippet-body" *ngIf="data.content">
+      {{data.content}}
+    </div>
+
+    <div class="snippet-buttons" *ngIf="data.link">
+      <a class="btn-blue btn-black-blue" href="{{data.link}}">{{data.linkText?data.linkText:'Read More'}}</a>
+    </div>
+  </div>
+</div>

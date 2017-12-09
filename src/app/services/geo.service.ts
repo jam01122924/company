@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
 import { ValueService } from './value.service';
-
-declare const L: any;
+import L from 'leaflet';
 
 @Injectable()
 export class GeoService {
@@ -138,7 +137,9 @@ export class GeoService {
   }
   createMap(id, zoomSize) {
     if(document.getElementById(id)) {
-      this.map = L.map(id)
+      if(!this.map){
+        this.map = L.map(id)
+      }
       this.map.setView([parseFloat(this.geoData[0].lat), parseFloat(this.geoData[0].lon)], zoomSize);
       // go http://leaflet-extras.github.io/leaflet-providers/preview/index.html for more free tileLayer
       L.tileLayer(this._vs.url.map.tileLayer, {

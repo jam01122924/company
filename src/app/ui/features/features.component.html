@@ -1,0 +1,9 @@
+<div class="features-container">
+  <div class="features-content">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let feature of featureArray">
+        <app-snippet [data]="feature"></app-snippet>
+      </div>
+    </div>
+  </div>
+</div>

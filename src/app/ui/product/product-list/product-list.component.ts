@@ -29,6 +29,6 @@ export class ProductListComponent implements OnInit {
         icon: 'fa-chrome'
       },
     ];
-    this.selectedProduct = 1;
+    this.selectedProduct = 0;
   }
 }

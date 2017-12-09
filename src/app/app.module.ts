@@ -84,12 +84,16 @@ import { D3ChartsDemoComponent } from './ui/product/d3-charts-demo/d3-charts-dem
 import { GalleryComponent } from './ui/gallery/gallery.component';
 import { GalleryListComponent } from './ui/gallery/gallery-list/gallery-list.component';
 import { GalleryShowComponent } from './ui/gallery/gallery-show/gallery-show.component';
+import { GalleryMapComponent } from './ui/gallery/gallery-show/gallery-map/gallery-map.component';
 import { GalleryListItemComponent } from './ui/gallery/gallery-list/gallery-list-item/gallery-list-item.component';
 import { CarouselComponent } from './common/carousel/carousel.component';
 import { CarouselImageListComponent } from './common/carousel/carousel-image-list/carousel-image-list.component';
 import { CarouselImageComponent } from './common/carousel/carousel-image-list/carousel-image/carousel-image.component';
 import { CarouselThumbNailListComponent } from './common/carousel/carousel-thumb-nail-list/carousel-thumb-nail-list.component';
 import { CarouselThumbNailComponent } from './common/carousel/carousel-thumb-nail-list/carousel-thumb-nail/carousel-thumb-nail.component';
+import { FindUsComponent } from './ui/find-us/find-us.component';
+import { FeaturesComponent } from './ui/features/features.component';
+import { SnippetComponent } from './common/snippet/snippet.component';
 
 
 const appRoutes: Routes = [
@@ -100,6 +104,9 @@ const appRoutes: Routes = [
   { path: 'solution', component: SolutionComponent },
   { path: 'plan', component: PlanComponent },
   { path: 'gallery', component: GalleryComponent },
+  { path: 'product', component: ProductComponent },
+  { path: 'features', component: FeaturesComponent },
+  { path: 'find-us', component: FindUsComponent },
   { path: 'games', component: GamesComponent },
   { path: 'z-survival', component: ZSurvivalComponent,
     children: [
@@ -179,12 +186,16 @@ const appRoutes: Routes = [
     GalleryComponent,
     GalleryListComponent,
     GalleryShowComponent,
+    GalleryMapComponent,
     GalleryListItemComponent,
     CarouselComponent,
     CarouselImageComponent,
     CarouselThumbNailListComponent,
     CarouselThumbNailComponent,
-    CarouselImageListComponent
+    CarouselImageListComponent,
+    FindUsComponent,
+    FeaturesComponent,
+    SnippetComponent
   ],
   imports: [
     AlertModule,

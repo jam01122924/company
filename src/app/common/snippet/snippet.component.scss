@@ -1,0 +1,39 @@
+@import '../../../font';
+@import '../../../color';
+@import '../../../general';
+
+.snippet-content {
+  margin: 40px 10px;
+  box-shadow: 0 0 15px grey;
+  border-radius: 15px;
+  .snippet-title {
+    padding: 10px 0 0 0;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: $color-gray90;
+    font-family: airstrike;
+  }
+  .snippet-img {
+    margin: 10px 0;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .snippet-body {
+    margin: 30px 10px;
+    font-size: 14px;
+    height: 100px;
+    color: $color-gray70;
+  }
+  .snippet-buttons {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+    height: 50px;
+    .btn-blue {
+      font-size: 14px;
+    }
+  }
+}

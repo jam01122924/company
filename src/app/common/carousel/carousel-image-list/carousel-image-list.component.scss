@@ -65,31 +65,49 @@
   }
 }
 
+
 .carousel-image-list-content {
   .carousel-image-list-images {
     .widescreen-1-carousel-image-list-image-container {
-      width: 90%;
+      .carousel-image-container{
+        .carousel-image-content {
+          width: 90%;
+        }
+      }
     }
   }
 }
 .carousel-image-list-content {
   .carousel-image-list-images {
     .widescreen-2-carousel-image-list-image-container {
-      width: 80%;
+      .carousel-image-container{
+        .carousel-image-content {
+          width: 80%;
+        }
+      }
     }
   }
 }
 .carousel-image-list-content {
   .carousel-image-list-images {
     .widescreen-3-carousel-image-list-image-container {
-      width: 70%;
+      .carousel-image-container{
+        .carousel-image-content {
+          width: 70%;
+        }
+      }
     }
   }
 }
+
 .carousel-image-list-content {
   .carousel-image-list-images {
-    .widescreen-4-carousel-image-list-image-container{
-      width: 60%;
+    .widescreen-4-carousel-image-list-image-container {
+      .carousel-image-container{
+        .carousel-image-content {
+          width: 60%;
+        }
+      }
     }
   }
 }

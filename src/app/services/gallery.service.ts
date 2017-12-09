@@ -1,108 +1,62 @@
 import { Injectable } from '@angular/core';
+import { data20170929 } from './localData/galleryData/2017-美西自驾游';
 
 @Injectable()
 export class GalleryService {
 	private _state: any;
 	private _data: any[];
+	private _currentData: any;
+
+	public currIndex: number;
 
   constructor() {
 		this._state = {
 			currentFolderIndex: 0,
 			currentDateIndex: 0,
 			currentViewIndex: 0,
-			currentPhotoIndex: 0,
 		};
 
-		this._data = [
-			{
-				name: '2017-美西自驾游',
-				des: 'test',
-				subFolder: [
-					{
-						name: '2017-9-29',
-						des: '2017-9-29',
-						subFolder: [
-							{
-								name: '起点',
-								des: 'where it all start...',
-								photos: [
-									{
-										title: '入境美国',
-										des: '刚刚入境美国，汉堡王快餐店外的枫叶收到初秋的消息不久',
-										url: 'https://i.imgur.com/0a0ZnTv.jpg',
-										type: 'w'
-									},
-									{
-										title: '堵，在西雅图',
-										des: '西雅图依旧一如既往的堵，我们还遇到了上下班高峰',
-										url: 'https://i.imgur.com/qTwuvXc.jpg',
-										type: 'w'
-									},
-									{
-										title: '堵，还在西雅图',
-										des: '繁忙的西雅图，堵到黄昏',
-										url: 'https://i.imgur.com/XpqTOPC.jpg',
-										type: 'w'
-									},
-									{
-										title: '堵，依旧在西雅图',
-										des: '繁忙的西雅图，堵到夕阳西下',
-										url: 'https://i.imgur.com/DBUNTcg.jpg',
-										type: 'w'
-									},
-									{
-										title: '夜路之上',
-										des: '前往Astoria的超长跨海大桥',
-										url: 'https://i.imgur.com/8IPQ2L1.jpg',
-										type: 'w'
-									}
-								]
-							},
-							{
-								name: '西雅图',
-								des: 'test',
-								photos: [
-									{
-										title: 'test',
-										des: 'test',
-										url: 'aaa.jpg'
-									},
-								]
-							},
-							{
-								name: '奥林匹亚',
-								des: 'test',
-								photos: [
-									{
-										title: 'test',
-										des: 'test',
-										url: 'aaa.jpg'
-									},
-								]
-							},
-							{
-								name: '美西1号公路',
-								des: 'test',
-								photos: [
-									{
-										title: 'test',
-										des: 'test',
-										url: 'aaa.jpg'
-									},
-								]
-							},
-						]
-					}
-				]
-			},
-		];
+		this._data = [];
+		//2017-美西自驾游
+		this._data.push(data20170929);
 
+		this._currentData = this._data[0].subFolder[0].subFolder[0];
+		this.currIndex = 0;
+	}
+
+	selectData(selectArray) {
+		this.currIndex = 0;
+		if(selectArray.length&&selectArray.length===3) {
+			this._state.currentFolderIndex = selectArray[0];
+			this._state.currentDateIndex = selectArray[1];
+			this._state.currentViewIndex = selectArray[2];
+
+			let result = JSON.parse(JSON.stringify(this._data));
+			selectArray.forEach((num)=>{
+				if(result.length>num) {
+					console.log('num')
+					result = result[num];
+				}else if(result.subFolder.length>num) {
+					console.log('subfolder')
+					result = result.subFolder[num];
+					if(!result.subFolder) {
+						this._currentData = result;
+						console.log('end', this._currentData);
+					}
+				}else {
+					console.log('error', this._currentData);
+					return;
+				}
+			});
+		}
 	}
 
 	get data(): any {
 		return this._data;
 	}
-
+	get currentData(): any {
+		return this._currentData;
+	}
 	get state(): any {
 		return this._state;
 	}

@@ -1,7 +1,7 @@
 <div class="gallery-list-container">
   <div class="gallery-list-content" *ngIf="_gs.data">
-    <div class="folder-list" *ngFor="let sub of _gs.data;">
-      <app-gallery-list-item [data]="sub"></app-gallery-list-item>
+    <div class="folder-list" *ngFor="let sub of _gs.data; let i = index ">
+      <app-gallery-list-item [data]="sub" [indexArr]="[i]"></app-gallery-list-item>
     </div>
   </div>
 </div>

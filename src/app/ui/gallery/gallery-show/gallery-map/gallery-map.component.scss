@@ -1,9 +1,10 @@
-@import '../../../../color';
-@import '../../../../animate';
+@import '../../../../../color';
+@import '../../../../../animate';
 
 .map-chart-container {
   position: relative;
   overflow: hidden;
+
   .fade-in-animate {
     animation-name: animation-fadeLeftIn;
     animation-duration: 1.2s;
@@ -26,8 +27,7 @@
   }
 
   #mapChart001 {
-    height: 520px;
-    max-height: 90vh;
+    height: calc(80vh - 40px);
     z-index: 4;
   }
 

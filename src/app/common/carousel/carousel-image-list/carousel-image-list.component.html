@@ -11,11 +11,11 @@
         }"
         [ngStyle]="{'left': '-120%'}"
         [@scrollAnimation]="leftCarouselImage"
-        *ngIf="currIndex>0"
+        *ngIf="_gs.currIndex>0"
       >
         <app-carousel-image
-          [src]="data.photos[currIndex-1].url"
-          [type]="data.photos[currIndex-1].type"
+          [src]="data.photos[_gs.currIndex-1].url"
+          [type]="data.photos[_gs.currIndex-1].type"
         ></app-carousel-image>
       </div>
 
@@ -28,10 +28,11 @@
         }"
         [ngStyle]="{'left': '0'}"
         [@scrollAnimation]="centerCarouselImage"
+        *ngIf="data.photos[_gs.currIndex]"
       >
         <app-carousel-image
-          [src]="data.photos[currIndex].url"
-          [type]="data.photos[currIndex].type"
+          [src]="data.photos[_gs.currIndex].url"
+          [type]="data.photos[_gs.currIndex].type"
         ></app-carousel-image>
       </div>
 
@@ -44,11 +45,11 @@
         }"
         [ngStyle]="{'left': '120%'}"
         [@scrollAnimation]="rightCarouselImage"
-        *ngIf="currIndex<data.photos.length-1"
+        *ngIf="_gs.currIndex<data.photos.length-1"
       >
         <app-carousel-image
-          [src]="data.photos[currIndex+1].url"
-          [type]="data.photos[currIndex+1].type"
+          [src]="data.photos[_gs.currIndex+1].url"
+          [type]="data.photos[_gs.currIndex+1].type"
         ></app-carousel-image>
       </div>
     </div>

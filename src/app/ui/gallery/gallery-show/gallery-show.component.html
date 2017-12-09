@@ -1,5 +1,12 @@
 <div class="gallery-show-container">
   <div class="gallery-show-content">
-    <app-carousel [data]="data" [config]="carouselConfig"></app-carousel>
+    <app-carousel [data]="_gs.currentData" [config]="carouselConfig" *ngIf="!showMap"></app-carousel>
+
+    <app-gallery-map *ngIf="showMap"></app-gallery-map>
+
+    <div class="gallery-show-switch-btn-container">
+      <div class="gallery-show-switch-btn" (click)="showMap=true" *ngIf="!showMap"><i class="fa fa-map" aria-hidden="true"></i></div>
+      <div class="gallery-show-switch-btn" (click)="showMap=false" *ngIf="showMap"><i class="fa fa-picture-o" aria-hidden="true"></i></div>
+    </div>
   </div>
 </div>

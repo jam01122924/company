@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
 		];
 		this.linksRight = [
       'gallery',
-      'product',
+      'features',
 			'find-us'
 		];
 	}

@@ -3,6 +3,7 @@ import {trigger, transition, style, useAnimation, animate} from "@angular/animat
 
 import { fadeAnimation, slideAnimation } from "../../../../animations";
 import { DeviceService } from '../../../services/device.service';
+import { GalleryService } from '../../../services/gallery.service';
 
 
 @Component({
@@ -120,7 +121,6 @@ export class CarouselImageListComponent implements OnInit {
 
   data: any;
   animationConfig: any = {};
-  currIndex: number = 1;
   leftCarouselImage: string = '';
   centerCarouselImage: string = '';
   rightCarouselImage: string = '';
@@ -129,7 +129,7 @@ export class CarouselImageListComponent implements OnInit {
 	h: number;
 	w: number;
 
-  constructor(private _ds: DeviceService) {
+  constructor(private _ds: DeviceService, private _gs: GalleryService) {
   }
 
   ngOnInit() {
@@ -138,6 +138,8 @@ export class CarouselImageListComponent implements OnInit {
     this.animationConfig.type = 'slide';
 		this._ds.height$.subscribe(data => this.h = data);
 		this._ds.width$.subscribe(data => this.w = data);
+    this._gs.currIndex = 0;
+    console.log(this.data);
   }
 
   ngAfterViewInit() {
@@ -174,14 +176,14 @@ export class CarouselImageListComponent implements OnInit {
   }
 
   changeIndex(num: number) {
-    this.currIndex = this.currIndex + num;
-    if(this.currIndex<0){this.currIndex=0;}
-    if(this.currIndex>=this.data.photos.length){this.currIndex=this.data.photos.length-1;}
+    this._gs.currIndex = this._gs.currIndex + num;
+    if(this._gs.currIndex<0){this._gs.currIndex=0;}
+    if(this._gs.currIndex>=this.data.photos.length){this._gs.currIndex=this.data.photos.length-1;}
   }
   changePicture(num: number) {
     console.log(num);
-    if(this.currIndex + num<0||this.currIndex + num>=this.data.photos.length) {
-      console.log('hit border', this.currIndex + num, this.data.photos.length);
+    if(this._gs.currIndex + num<0||this._gs.currIndex + num>=this.data.photos.length) {
+      console.log('hit border', this._gs.currIndex + num, this.data.photos.length);
       return;
     }
     if(!this.disableBtn) {
@@ -216,14 +218,15 @@ export class CarouselImageListComponent implements OnInit {
 
   exitfullScreen() {
     this.fullScreen = false;
-    if(document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if ( document.webkitExitFullscreen ) {
-      document.webkitExitFullscreen();
-    } else if ( document.mozCancelFullScreen ) {
-      document.mozCancelFullScreen();
-    } else if ( document.msExitFullscreen ) {
-      document.msExitFullscreen();
+
+    if(document['exitFullscreen']) {
+      document['exitFullscreen']();
+    } else if ( document['webkitExitFullscreen'] ) {
+      document['webkitExitFullscreen']();
+    } else if ( document['mozCancelFullScreen'] ) {
+      document['mozCancelFullScreen']();
+    } else if ( document['msExitFullscreen'] ) {
+      document['msExitFullscreen']();
     }
   }
 
